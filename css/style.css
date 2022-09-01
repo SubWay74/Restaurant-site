@@ -1,0 +1,280 @@
+:root {
+    --main-color: #F6FBF4;
+    --sec-color: #dfd5c0;
+    --txt-color: #29460f;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    background-color: var(--sec-color);
+    overflow-x: hidden;
+    min-width: 570px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 20px;
+    box-shadow: 0 0 7px 0px black;
+    color: var(--txt-color);
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+nav .logo .logo-img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    border-radius: 25%;
+}
+
+nav .nav-links ul {
+    display: flex;
+
+}
+
+nav .nav-links ul li {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.mainsec {
+    width: 100%;
+    height: 74vh;
+    background-image: url(/img/resturant.jpg);
+    background-size: cover;
+    transition: .5s ease;
+}
+
+@media (max-width: 1000px) {
+    .mainsec {
+        height: 50vh;
+    }
+}
+
+.mainsec h1 {
+    position: absolute;
+    margin: 20% 41%;
+    padding: 10px;
+    background-color: #f6fbf4d1;
+    border: 2px solid var(--txt-color);
+    border-radius: 7px;
+    cursor: pointer;
+    color: var(--txt-color);
+    min-width: 201px;
+}
+
+.disc {
+    padding: 10px 30px;
+    background-color: var(--main-color);
+    color: var(--txt-color);
+    box-shadow: -2px 0px 8px var(--txt-color);
+    margin-bottom: 10px;
+}
+
+.menu {
+    display: flex;
+    padding: 10px 60px;
+    background-color: var(--sec-color);
+    /* height: 80vh; */
+    overflow-y: scroll;
+    min-width: 550px;
+}
+
+@media (max-width: 1000px) {
+    .menu {
+        max-height: 40vh;
+
+    }
+}
+
+.menu .menu-list {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.menu .menu-list ul li,
+.menu .menu-list ul option {
+    width: 200px;
+    text-align: center;
+    padding: 10px 0px;
+    background-color: var(--main-color);
+    color: var(--txt-color);
+    font-weight: 700;
+    border: 1px solid var(--txt-color);
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.menu .menu-pic ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu .menu-pic ul li img{
+    width: 180px;
+    max-height: 100px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 3px solid var(--txt-color);
+}
+
+/* .menu .menu-pic ul li {
+    display: none;
+} */
+
+.menu .menu-pic .active{
+    display: flex;
+}
+
+.down-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+} 
+
+.down-menu .down-menu-img {
+    width: 95%;
+    position: relative;
+    background-image: url(/img/menu-5.jpg);
+    background-size: cover;
+    height: 80vh;
+}
+
+.down-menu .down-menu-img::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.54);
+    width: 100%;
+    height: 100%;
+}
+
+.down-menu .down-menu-txt {
+    position: absolute;
+    color: var(--txt-color);
+}
+
+.down-menu .down-btn {
+    position: absolute;
+    margin-top: 72px;
+    padding: 40px;
+    background-color: var(--txt-color);
+    color: var(--main-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.callus {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 1000px) {
+    .callus .img {
+        display: none;
+    }
+}
+
+.callus .img img{
+    border-radius: 10px;
+    border: 1px solid var(--txt-color);
+}
+
+.callus .txt form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.callus .txt form input {
+    padding: 5px;
+    margin: 5px 0;
+    width: 400px;
+    height: 30px;
+    border: 1px solid var(--txt-color);
+}
+
+.callus .txt form textarea {
+    padding: 5px;
+    margin: 5px 0;
+    max-height: 150px;
+    max-width: 400px;
+    border: 1px solid var(--txt-color);
+}
+
+.callus .txt form button {
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid var(--txt-color);
+    width: 80px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--txt-color);
+    background-color: var(--main-color);
+    font-size: 40px;
+    border: 2px solid var(--txt-color);
+    width: 102%;
+}
+
+.footer .links ul {
+    display: flex;
+    margin-left: 20px;
+}
+
+.footer .links ul .face {color: blue;}
+.footer .links ul .whats {color: green;}
+.footer .links ul .email {color: red;}
+
+.footer .links ul li {
+    padding: 0 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.footer .links ul li span{
+    margin-left: 5px;
+    font-size: 15px;
+    opacity: 0;
+    transition: ease-in 1s;
+    width: 0px;
+}
+
+.footer .links li:hover span {
+    opacity: 1;
+    width: 110px;
+}
+
