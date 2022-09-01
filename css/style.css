@@ -61,7 +61,7 @@ nav .nav-links ul li {
 .mainsec {
     width: 100%;
     height: 74vh;
-    background-image: url(/img/resturant.jpg);
+    background-image: url(../img/resturant.jpg);
     background-size: cover;
     transition: .5s ease;
 }
@@ -159,7 +159,7 @@ nav .nav-links ul li {
 .down-menu .down-menu-img {
     width: 95%;
     position: relative;
-    background-image: url(/img/menu-5.jpg);
+    background-image: url(../img/menu-5.jpg);
     background-size: cover;
     height: 80vh;
 }
