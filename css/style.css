@@ -14,7 +14,10 @@ body {
     font-family: 'Kdam Thmor Pro', sans-serif;
     background-color: var(--sec-color);
     overflow-x: hidden;
-    min-width: 570px;
+    position: relative;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 ul {
@@ -27,13 +30,18 @@ a {
 }
 
 nav {
+    position: fixed;
     background-color: var(--main-color);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 5px 20px;
     box-shadow: 0 0 7px 0px black;
     color: var(--txt-color);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
 }
 
 nav .logo {
@@ -54,16 +62,23 @@ nav .nav-links ul {
 }
 
 nav .nav-links ul li {
-    margin: 0 10px;
     cursor: pointer;
+    padding: 13px;
+}
+
+nav .nav-links ul .active {
+    background-color: #29460f;
+    color: white;
 }
 
 .mainsec {
     width: 100%;
-    height: 74vh;
-    background-image: url(../img/resturant.jpg);
+    min-height: 74vh;
+    /* this background will change with js */
+    background-image: url(../img/resturant.webp);
     background-size: cover;
-    transition: .5s ease;
+    transition: 1s ease;
+    position: relative;
 }
 
 @media (max-width: 1000px) {
@@ -74,14 +89,15 @@ nav .nav-links ul li {
 
 .mainsec h1 {
     position: absolute;
-    margin: 20% 41%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 10px;
     background-color: #f6fbf4d1;
     border: 2px solid var(--txt-color);
     border-radius: 7px;
     cursor: pointer;
     color: var(--txt-color);
-    min-width: 201px;
 }
 
 .disc {
@@ -94,24 +110,31 @@ nav .nav-links ul li {
 
 .menu {
     display: flex;
-    padding: 10px 60px;
+    padding: 10px 30px;
     background-color: var(--sec-color);
-    /* height: 80vh; */
     overflow-y: scroll;
-    min-width: 550px;
+    /* max-height: 20em; */
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
     .menu {
-        max-height: 40vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .menu .menu-list ul {
+        display: flex;
+    }
 
+    .menu .menu-pic ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
 .menu .menu-list {
     display: flex;
     flex-direction: column;
-
 }
 
 .menu .menu-list ul li,
@@ -126,23 +149,37 @@ nav .nav-links ul li {
     border-radius: 3px;
     cursor: pointer;
     margin-bottom: 5px;
+    display: block;
+}
+
+.menu .menu-list ul .active {
+    background-color: #29460f;
+    color: white;
 }
 
 .menu .menu-pic ul{
     display: flex;
     flex-wrap: wrap;
 }
+
+.menu .menu-pic ul li  {
+    transform: .5s ease;
+    /* width: 170px;
+    max-height: 100px; */
+}
+
 .menu .menu-pic ul li img{
-    width: 180px;
+    width: 170px;
     max-height: 100px;
     margin: 0 5px;
     cursor: pointer;
     border: 3px solid var(--txt-color);
 }
 
-/* .menu .menu-pic ul li {
-    display: none;
-} */
+.menu .menu-pic ul .hide  {
+    width: 0px;
+    height: 0px;
+}
 
 .menu .menu-pic .active{
     display: flex;
@@ -192,89 +229,99 @@ nav .nav-links ul li {
     font-size: 50px;
 }
 
-.callus {
+
+@media (max-width: 700px) {
+    .contact-us {
+        flex-direction: column;
+    }
+}
+
+.contact-us {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-@media (max-width: 1000px) {
-    .callus .img {
-        display: none;
-    }
+.contact-us .img{
+    /* position: relative; */
+    cursor: pointer;
 }
 
-.callus .img img{
+.contact-us .img img{
     border-radius: 10px;
     border: 1px solid var(--txt-color);
+    width: 15em;
+    pointer-events: none;
 }
 
-.callus .txt form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.contact-us .img .popup {
+    position: fixed;
+    border-radius: 50%;
+    width: 15%;
+    height: 15%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s all ease;
 }
 
-.callus .txt form input {
-    padding: 5px;
-    margin: 5px 0;
-    width: 400px;
-    height: 30px;
-    border: 1px solid var(--txt-color);
+
+
+.contact-us .img .popup img{
+    position: relative;
+    width: 70%;
+    height: 70%;
+    visibility: inherit;
+    opacity: inherit;
+    border-radius: 11%;
 }
 
-.callus .txt form textarea {
-    padding: 5px;
-    margin: 5px 0;
-    max-height: 150px;
-    max-width: 400px;
-    border: 1px solid var(--txt-color);
+.contact-us .img .popup button {
+    position: fixed;
+    top: 20%;
+    right: 20%;
+    font-size: 2em;
+    background: none;
+    border: none;
+    opacity: 0.8;
+    cursor: pointer;
+    color: #ff0202;
 }
 
-.callus .txt form button {
-    padding: 5px;
-    margin: 5px 0;
-    border: 1px solid var(--txt-color);
-    width: 80px;
+.contact-us .img .open-pop {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    border-radius: 0;
+    background: #000000a8;
+}
+
+
+
+.contact-us .calls ul li {
+    font-size: 2em;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.contact-us .calls ul li:hover {
+    background-color: gray;
+}
+
+.contact-us .calls ul .face { color: blue;}
+.contact-us .calls ul .whats { color: green;}
+.contact-us .calls ul .email { color: red;}
+
+.contact-us .calls ul li i{
+    margin: 0 1em;
 }
 
 .footer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    color: var(--txt-color);
-    background-color: var(--main-color);
-    font-size: 40px;
-    border: 2px solid var(--txt-color);
-    width: 102%;
-}
-
-.footer .links ul {
-    display: flex;
-    margin-left: 20px;
-}
-
-.footer .links ul .face {color: blue;}
-.footer .links ul .whats {color: green;}
-.footer .links ul .email {color: red;}
-
-.footer .links ul li {
-    padding: 0 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.footer .links ul li span{
-    margin-left: 5px;
-    font-size: 15px;
-    opacity: 0;
-    transition: ease-in 1s;
-    width: 0px;
-}
-
-.footer .links li:hover span {
-    opacity: 1;
-    width: 110px;
 }
 
